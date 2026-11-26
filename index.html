@@ -1726,6 +1726,678 @@
           height: 180px;
         }
       }
+    /* ═══════════════════════════════════════════════════════════
+   🔥 EXPERIÊNCIA EXTREMA · CYBERPUNK TIMELINE
+   ═══════════════════════════════════════════════════════════ */
+
+.exp-xtreme {
+  position: relative;
+  padding: 9rem 4rem 10rem;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ── BG DECORATIVO ── */
+.ex-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99,195,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,195,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 20%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+.ex-bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+}
+.ex-glow-1 { top: 8%;  left: -8%;  width: 450px; height: 450px; background: radial-gradient(circle, rgba(99,195,255,0.5), transparent 70%); animation: ex-float 16s ease-in-out infinite; }
+.ex-glow-2 { top: 45%; right: -10%; width: 520px; height: 520px; background: radial-gradient(circle, rgba(167,139,250,0.45), transparent 70%); animation: ex-float 20s ease-in-out infinite reverse; }
+.ex-glow-3 { bottom: 0; left: 40%; width: 500px; height: 400px; background: radial-gradient(circle, rgba(52,211,153,0.35), transparent 70%); animation: ex-float 24s ease-in-out infinite; }
+@keyframes ex-float {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%     { transform: translate(30px,-40px) scale(1.1); }
+}
+
+/* Scanline global */
+.ex-bg-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(99,195,255,0.015) 3px,
+    rgba(99,195,255,0.015) 4px
+  );
+  z-index: 0;
+}
+
+/* ── HEADER ── */
+.ex-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.ex-terminal-line {
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.55rem 1.1rem;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 24px rgba(99,195,255,0.15), inset 0 0 20px rgba(0,0,0,0.6);
+}
+.ex-prompt { color: var(--accent3); }
+.ex-cmd    { color: var(--text); }
+.ex-cursor { color: var(--accent); animation: ex-blink 1s steps(2) infinite; }
+@keyframes ex-blink { 50% { opacity: 0; } }
+
+.ex-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  padding: 0.3rem 0.9rem;
+  border: 1px dashed rgba(99,195,255,0.35);
+  border-radius: 2px;
+  background: rgba(99,195,255,0.04);
+  text-shadow: 0 0 12px rgba(99,195,255,0.6);
+}
+.ex-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.5vw, 5rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+.ex-title-line {
+  display: inline;
+  margin-right: -0.03em;
+}
+.ex-title-glow {
+  position: relative;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--accent);
+  text-shadow:
+    0 0 30px rgba(99,195,255,0.35),
+    0 0 60px rgba(99,195,255,0.2);
+  animation: ex-title-pulse 4s ease-in-out infinite;
+}
+.ex-title-glow::before,
+.ex-title-glow::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  -webkit-text-stroke: 0;
+  pointer-events: none;
+}
+.ex-title-glow::before {
+  color: var(--accent2);
+  mix-blend-mode: screen;
+  clip-path: polygon(0 20%, 100% 20%, 100% 45%, 0 45%);
+  animation: ex-glitch-1 3.6s infinite;
+}
+.ex-title-glow::after {
+  color: var(--accent3);
+  mix-blend-mode: screen;
+  clip-path: polygon(0 60%, 100% 60%, 100% 85%, 0 85%);
+  animation: ex-glitch-2 3.6s infinite;
+}
+@keyframes ex-title-pulse {
+  0%,100% { text-shadow: 0 0 30px rgba(99,195,255,0.35), 0 0 60px rgba(99,195,255,0.2); }
+  50%     { text-shadow: 0 0 40px rgba(99,195,255,0.6), 0 0 90px rgba(99,195,255,0.35); }
+}
+@keyframes ex-glitch-1 {
+  0%,90%,100% { transform: translate(0); }
+  92% { transform: translate(-3px,1px); }
+  94% { transform: translate(2px,-2px); }
+  96% { transform: translate(-1px,0); }
+}
+@keyframes ex-glitch-2 {
+  0%,90%,100% { transform: translate(0); }
+  91% { transform: translate(3px,-1px); }
+  93% { transform: translate(-2px,2px); }
+  95% { transform: translate(1px,1px); }
+}
+
+.ex-header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--text3);
+  text-transform: uppercase;
+}
+.ex-header-meta span {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+/* ── CONTAINER / TIMELINE ── */
+.ex-container {
+  position: relative;
+  z-index: 2;
+  max-width: 950px;
+  margin: 0 auto;
+  padding-left: 5rem;
+}
+
+/* Linha vertical de energia */
+.ex-line {
+  position: absolute;
+  left: 2.1rem;
+  top: 0;
+  bottom: 3rem;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(99,195,255,0.15) 5%,
+    var(--accent) 20%,
+    var(--accent2) 50%,
+    var(--accent3) 80%,
+    rgba(99,195,255,0.15) 95%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 12px rgba(99,195,255,0.4),
+    0 0 30px rgba(99,195,255,0.15);
+  overflow: hidden;
+}
+.ex-line::before {
+  content: "";
+  position: absolute;
+  inset: -20px 0;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0 30px,
+    rgba(255,255,255,0.5) 30px 32px,
+    transparent 32px 60px
+  );
+  animation: ex-line-flow 4s linear infinite;
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+}
+@keyframes ex-line-flow {
+  to { transform: translateY(60px); }
+}
+.ex-line-progress {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 0%;
+  background: linear-gradient(180deg, transparent, var(--accent), transparent);
+  box-shadow: 0 0 20px var(--accent);
+  transition: height 0.2s linear;
+  z-index: 1;
+}
+.ex-line-particles {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, var(--accent) 1px, transparent 1.5px),
+    radial-gradient(circle, var(--accent2) 1px, transparent 1.5px);
+  background-size: 100% 200px, 100% 260px;
+  background-position: 0 0, 50% 100px;
+  animation: ex-line-particles 8s linear infinite;
+  opacity: 0.6;
+  filter: blur(0.5px);
+}
+@keyframes ex-line-particles {
+  to { background-position: 0 200px, 50% -160px; }
+}
+
+/* ── ITEM ── */
+.ex-item {
+  position: relative;
+  margin-bottom: 3.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s;
+  perspective: 1200px;
+}
+.ex-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── NÓ (dot) ── */
+.ex-node {
+  position: absolute;
+  left: -3.7rem;
+  top: 1.6rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+.ex-node-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  box-shadow:
+    0 0 20px rgba(99,195,255,0.6),
+    inset 0 0 12px rgba(99,195,255,0.3);
+  animation: ex-node-pulse 2.4s ease-in-out infinite;
+}
+.ex-node-ring::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(99,195,255,0.35);
+  animation: ex-node-halo 3s ease-out infinite;
+}
+@keyframes ex-node-pulse {
+  0%,100% { box-shadow: 0 0 20px rgba(99,195,255,0.6), inset 0 0 12px rgba(99,195,255,0.3); }
+  50%     { box-shadow: 0 0 32px rgba(99,195,255,0.9), inset 0 0 18px rgba(99,195,255,0.5); }
+}
+@keyframes ex-node-halo {
+  0%   { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+.ex-node-core {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  z-index: 2;
+  box-shadow: 0 0 12px rgba(99,195,255,0.8);
+}
+.ex-node-live .ex-node-ring {
+  border-color: var(--accent4);
+  box-shadow:
+    0 0 24px rgba(249,115,22,0.7),
+    inset 0 0 14px rgba(249,115,22,0.35);
+}
+.ex-node-live .ex-node-core {
+  background: linear-gradient(135deg, var(--accent4), #ffb86b);
+  box-shadow: 0 0 16px rgba(249,115,22,0.9);
+}
+.ex-node-live .ex-node-ring::before {
+  border-color: rgba(249,115,22,0.4);
+}
+
+/* ── CARD ── */
+.ex-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(20,28,38,0.95), rgba(13,17,23,0.98));
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  padding: 1.8rem 2rem;
+  overflow: hidden;
+  transition:
+    transform 0.55s cubic-bezier(0.16,1,0.3,1),
+    box-shadow 0.55s ease,
+    border-color 0.4s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.ex-card::before {
+  /* Linha superior neon animada */
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--accent) 30%,
+    var(--accent2) 50%,
+    var(--accent3) 70%,
+    transparent);
+  background-size: 200% 100%;
+  animation: ex-border-shift 4s linear infinite;
+}
+@keyframes ex-border-shift {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+.ex-card::after {
+  /* Borda conic no hover */
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 4px;
+  padding: 1px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    var(--accent) 60deg,
+    transparent 120deg,
+    var(--accent2) 180deg,
+    transparent 240deg,
+    var(--accent3) 300deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: ex-spin 6s linear infinite;
+  pointer-events: none;
+  z-index: 3;
+}
+@keyframes ex-spin { to { transform: rotate(360deg); } }
+.ex-card:hover {
+  border-color: transparent;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.75),
+    0 0 60px rgba(99,195,255,0.25),
+    0 0 100px rgba(167,139,250,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.ex-card:hover::after { opacity: 1; }
+
+/* Glow interno dinâmico */
+.ex-card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 20% 0%,
+    rgba(99,195,255,0.08),
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.5s;
+  opacity: 0.4;
+}
+.ex-card:hover .ex-card-glow { opacity: 1; }
+
+/* Cantos */
+.ex-card-borders { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
+.ex-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--accent);
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 0 4px rgba(99,195,255,0.6));
+}
+.ex-corner.tl { top: 8px; left: 8px;  border-right: none; border-bottom: none; }
+.ex-corner.tr { top: 8px; right: 8px; border-left: none;  border-bottom: none; }
+.ex-corner.bl { bottom: 8px; left: 8px;  border-right: none; border-top: none; }
+.ex-corner.br { bottom: 8px; right: 8px; border-left: none;  border-top: none; }
+.ex-card:hover .ex-corner { width: 22px; height: 22px; border-color: var(--accent2); }
+
+/* Scanline sweep */
+.ex-scanline {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(99,195,255,0.15) 50%, transparent 60%);
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+.ex-card:hover .ex-scanline {
+  opacity: 1;
+  animation: ex-scanline 2.4s linear infinite;
+}
+@keyframes ex-scanline {
+  to { transform: translateY(100%); }
+}
+
+/* Ribbon */
+.ex-ribbon {
+  position: absolute;
+  top: 16px;
+  right: -46px;
+  z-index: 6;
+  transform: rotate(45deg);
+  background: linear-gradient(90deg, var(--accent4), #ffb86b);
+  color: #080b10;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  padding: 0.28rem 3rem;
+  box-shadow: 0 4px 20px rgba(249,115,22,0.5);
+  animation: ex-ribbon-pulse 2.5s ease-in-out infinite;
+}
+.ex-ribbon-alt {
+  background: linear-gradient(90deg, var(--accent3), var(--accent));
+  box-shadow: 0 4px 20px rgba(52,211,153,0.5);
+}
+@keyframes ex-ribbon-pulse {
+  0%,100% { filter: brightness(1); }
+  50%     { filter: brightness(1.25); }
+}
+
+/* ── CONTEÚDO DO CARD ── */
+.ex-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+.ex-year {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 0.3rem 0.75rem;
+  border: 1px solid rgba(99,195,255,0.45);
+  border-radius: 2px;
+  background: rgba(99,195,255,0.08);
+  text-shadow: 0 0 10px rgba(99,195,255,0.6);
+  box-shadow: 0 0 12px rgba(99,195,255,0.15);
+}
+.ex-code {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  opacity: 0.7;
+}
+
+.ex-role {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+.ex-card:hover .ex-role {
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(99,195,255,0.5);
+}
+.ex-role::before,
+.ex-role::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.ex-card:hover .ex-role::before {
+  content: attr(data-text);
+  color: var(--accent2);
+  opacity: 0.55;
+  animation: ex-glitch-1 0.6s infinite;
+}
+.ex-card:hover .ex-role::after {
+  content: attr(data-text);
+  color: var(--accent3);
+  opacity: 0.55;
+  animation: ex-glitch-2 0.6s infinite;
+}
+
+.ex-company {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text2);
+  margin-bottom: 0.9rem;
+}
+.ex-company-icon {
+  color: var(--accent3);
+  text-shadow: 0 0 8px rgba(52,211,153,0.7);
+  font-size: 0.9rem;
+}
+.ex-company-name {
+  color: var(--accent2);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(167,139,250,0.4);
+}
+
+.ex-desc {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--text2);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Tags */
+.ex-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+  position: relative;
+  z-index: 1;
+}
+.ex-tags span {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  padding: 0.28rem 0.65rem;
+  background: rgba(99,195,255,0.05);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  border-radius: 2px;
+  transition: all 0.25s;
+}
+.ex-tags span:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(99,195,255,0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px rgba(99,195,255,0.3);
+}
+
+/* ── FIM DA TIMELINE ── */
+.ex-end {
+  position: relative;
+  margin-top: 3rem;
+  padding-left: 0;
+}
+.ex-end-line {
+  position: absolute;
+  left: -2.95rem;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  border: 2px dashed var(--accent2);
+  border-radius: 50%;
+  box-shadow: 0 0 16px rgba(167,139,250,0.5);
+  animation: ex-spin 8s linear infinite;
+}
+.ex-end-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  padding: 0.5rem 1rem;
+  border: 1px dashed rgba(167,139,250,0.4);
+  background: rgba(167,139,250,0.05);
+  border-radius: 2px;
+  text-shadow: 0 0 10px rgba(167,139,250,0.5);
+}
+.ex-end-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent2);
+  box-shadow: 0 0 10px var(--accent2);
+  animation: ex-blink 1.4s infinite;
+}
+
+/* ── RESPONSIVO ── */
+@media (max-width: 900px) {
+  .exp-xtreme { padding: 5rem 1.25rem 6rem; }
+  .ex-container { padding-left: 3.5rem; }
+  .ex-line { left: 1.25rem; }
+  .ex-node { left: -2.65rem; width: 36px; height: 36px; }
+  .ex-node-core { width: 22px; height: 22px; font-size: 0.6rem; }
+  .ex-card { padding: 1.4rem 1.3rem; }
+  .ex-role { font-size: 1.25rem; }
+  .ex-title { font-size: clamp(2rem, 9vw, 3rem); }
+  .ex-header-meta { gap: 0.6rem; }
+  .ex-header-meta span { font-size: 0.6rem; }
+  .ex-ribbon { font-size: 0.55rem; padding: 0.25rem 2.6rem; }
+  .ex-end-line { left: -2.5rem; }
+}
+
+@media (max-width: 480px) {
+  .ex-container { padding-left: 3rem; }
+  .ex-line { left: 1rem; }
+  .ex-node { left: -2.4rem; width: 32px; height: 32px; }
+  .ex-node-core { width: 20px; height: 20px; font-size: 0.55rem; }
+  .ex-card { padding: 1.2rem 1rem; }
+  .ex-role { font-size: 1.1rem; }
+  .ex-card-top { gap: 0.4rem; }
+  .ex-year { font-size: 0.62rem; }
+  .ex-end-line { left: -2.15rem; width: 20px; height: 20px; }
+}
     </style>
   </head>
   <body>
@@ -2922,69 +3594,209 @@
       </section>
 
       <!-- ── EXPERIENCE ── -->
-      <section id="experience">
-        <div class="section-header reveal">
-          <span class="section-label">// 04. experiência</span>
-          <h2 class="section-title">Trajetória</h2>
+      <section id="experience" class="exp-xtreme">
+  <!-- BG DECORATIVO -->
+  <div class="ex-bg-grid"></div>
+  <div class="ex-bg-glow ex-glow-1"></div>
+  <div class="ex-bg-glow ex-glow-2"></div>
+  <div class="ex-bg-glow ex-glow-3"></div>
+  <div class="ex-bg-scan"></div>
+
+  <div class="section-header reveal ex-header">
+    <div class="ex-terminal-line">
+      <span class="ex-prompt">visitor@vsarrís:~$</span>
+      <span class="ex-cmd">cat ./timeline.log --verbose</span>
+      <span class="ex-cursor">▊</span>
+    </div>
+    <span class="section-label ex-label">// 04. experiência · the journey</span>
+    <h2 class="section-title ex-title">
+      <span class="ex-title-line">Traje</span><span class="ex-title-line ex-title-glow" data-text="tória">tória</span>
+    </h2>
+    <div class="ex-header-meta">
+      <span>◈ 5 marcos registrados</span>
+      <span>◈ timeline em tempo real</span>
+      <span>◈ still loading... ∞</span>
+    </div>
+  </div>
+
+  <div class="ex-container">
+    <!-- Linha de energia -->
+    <div class="ex-line">
+      <div class="ex-line-progress"></div>
+      <div class="ex-line-particles"></div>
+    </div>
+
+    <!-- ═══════ 01 · TADS ═══════ -->
+    <div class="ex-item reveal" data-tilt>
+      <div class="ex-node">
+        <span class="ex-node-ring"></span>
+        <span class="ex-node-core">01</span>
+      </div>
+      <div class="ex-card">
+        <div class="ex-card-borders">
+          <span class="ex-corner tl"></span><span class="ex-corner tr"></span>
+          <span class="ex-corner bl"></span><span class="ex-corner br"></span>
+          <span class="ex-scanline"></span>
         </div>
-        <div class="exp-container">
-          <div class="exp-line"></div>
+        <div class="ex-card-glow"></div>
 
-          <div class="exp-item">
-            <div class="exp-dot"></div>
-            <div class="exp-date">2024 — 2026</div>
-            <div class="exp-role">Cursando TADS</div>
-            <div class="exp-company">
-              Cursando Análise e Desenvolvimento de Sistemas no IFPI Campus
-              Floriano
-            </div>
-          </div>
-
-          <div class="exp-item">
-            <div class="exp-dot"></div>
-            <div class="exp-date">2025 - Até o momento</div>
-            <div class="exp-role">Therapy</div>
-            <div class="exp-company">Sócio</div>
-            <div class="exp-desc">
-              Estamos desenvolvendo o Therapy, uma plataforma de teleconsultas psicológicas. Nosso MVP (versão inicial) oferecerá atendimentos online agendados e plantão psicológico, permitindo que você experimente a praticidade e acolhimento da terapia digital.
-            </div>
-          </div>
-          <div class="exp-item">
-            <div class="exp-dot"></div>
-            <div class="exp-date">2025 - 2026</div>
-            <div class="exp-role">Residência em Sistemas Embarcados</div>
-            <div class="exp-company">Estudos e Projetos Pessoais</div>
-            <div class="exp-desc">
-              Primeiros projetos com IOT e Sistemas Embarcados. Bem como a
-              criação de projetos como Sistemas Inteligentes de Reconhecimento
-              Facial e Controle Inteligente de ar-condicionado. Além de outras
-              operações envolvendo ESP32, PiPico, SBC (Labrador) e outros
-              sensores.
-            </div>
-          </div>
-
-          <div class="exp-item">
-            <div class="exp-dot"></div>
-            <div class="exp-date">2026 - Até o momento</div>
-            <div class="exp-role">Secretaria de Saúde</div>
-            <div class="exp-company">Setor Epidemiológico.</div>
-            <div class="exp-desc">
-              Estágio remunerado que contempla a criação de um mapa
-              epidemiológio de Floriano destacando as principais endemias da
-              Cidade.
-            </div>
-          </div>
-          <div class="exp-item">
-            <div class="exp-dot"></div>
-            <div class="exp-date">2026 - Até o momento</div>
-            <div class="exp-role">OverFlows</div>
-            <div class="exp-company">Plataforma de programação.</div>
-            <div class="exp-desc">
-              Plataforma focada na resolução de algoritmos, participação de eventos de programação. Construa seu portfólio enquanto compete com desenvolvedores de todo o mundo!
-            </div>
-          </div>
+        <div class="ex-card-top">
+          <span class="ex-year">2024 — 2026</span>
+          <span class="ex-code">#EDU-001</span>
         </div>
-      </section>
+        <h3 class="ex-role" data-text="Cursando TADS">Cursando TADS</h3>
+        <div class="ex-company">
+          <span class="ex-company-icon">◈</span>
+          Cursando Análise e Desenvolvimento de Sistemas no IFPI Campus Floriano
+        </div>
+        <div class="ex-tags">
+          <span>Educação</span><span>Graduação</span><span>IFPI</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ 02 · THERAPY ═══════ -->
+    <div class="ex-item ex-item-highlight reveal" data-tilt>
+      <div class="ex-node ex-node-live">
+        <span class="ex-node-ring"></span>
+        <span class="ex-node-core">02</span>
+      </div>
+      <div class="ex-card">
+        <div class="ex-card-borders">
+          <span class="ex-corner tl"></span><span class="ex-corner tr"></span>
+          <span class="ex-corner bl"></span><span class="ex-corner br"></span>
+          <span class="ex-scanline"></span>
+        </div>
+        <div class="ex-card-glow"></div>
+        <div class="ex-ribbon">★ LIVE · FOUNDING</div>
+
+        <div class="ex-card-top">
+          <span class="ex-year">2025 — até o momento</span>
+          <span class="ex-code">#BIZ-002</span>
+        </div>
+        <h3 class="ex-role" data-text="Therapy">Therapy</h3>
+        <div class="ex-company">
+          <span class="ex-company-icon">◈</span>
+          <strong class="ex-company-name">Sócio</strong>
+        </div>
+        <p class="ex-desc">
+          Estamos desenvolvendo o Therapy, uma plataforma de teleconsultas psicológicas. Nosso MVP (versão inicial) oferecerá atendimentos online agendados e plantão psicológico, permitindo que você experimente a praticidade e acolhimento da terapia digital.
+        </p>
+        <div class="ex-tags">
+          <span>Sócio</span><span>HealthTech</span><span>Teleconsulta</span><span>MVP</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ 03 · EMBARCADOS ═══════ -->
+    <div class="ex-item reveal" data-tilt>
+      <div class="ex-node">
+        <span class="ex-node-ring"></span>
+        <span class="ex-node-core">03</span>
+      </div>
+      <div class="ex-card">
+        <div class="ex-card-borders">
+          <span class="ex-corner tl"></span><span class="ex-corner tr"></span>
+          <span class="ex-corner bl"></span><span class="ex-corner br"></span>
+          <span class="ex-scanline"></span>
+        </div>
+        <div class="ex-card-glow"></div>
+
+        <div class="ex-card-top">
+          <span class="ex-year">2025 — 2026</span>
+          <span class="ex-code">#HW-003</span>
+        </div>
+        <h3 class="ex-role" data-text="Residência em Sistemas Embarcados">
+          Residência em Sistemas Embarcados
+        </h3>
+        <div class="ex-company">
+          <span class="ex-company-icon">◈</span>
+          Estudos e Projetos Pessoais
+        </div>
+        <p class="ex-desc">
+          Primeiros projetos com IOT e Sistemas Embarcados. Bem como a criação de projetos como Sistemas Inteligentes de Reconhecimento Facial e Controle Inteligente de ar-condicionado. Além de outras operações envolvendo ESP32, PiPico, SBC (Labrador) e outros sensores.
+        </p>
+        <div class="ex-tags">
+          <span>IoT</span><span>ESP32</span><span>PiPico</span><span>SBC Labrador</span><span>Sensores</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ 04 · SECRETARIA DE SAÚDE ═══════ -->
+    <div class="ex-item reveal" data-tilt>
+      <div class="ex-node">
+        <span class="ex-node-ring"></span>
+        <span class="ex-node-core">04</span>
+      </div>
+      <div class="ex-card">
+        <div class="ex-card-borders">
+          <span class="ex-corner tl"></span><span class="ex-corner tr"></span>
+          <span class="ex-corner bl"></span><span class="ex-corner br"></span>
+          <span class="ex-scanline"></span>
+        </div>
+        <div class="ex-card-glow"></div>
+
+        <div class="ex-card-top">
+          <span class="ex-year">2026 — até o momento</span>
+          <span class="ex-code">#PUB-004</span>
+        </div>
+        <h3 class="ex-role" data-text="Secretaria de Saúde">Secretaria de Saúde</h3>
+        <div class="ex-company">
+          <span class="ex-company-icon">◈</span>
+          Setor Epidemiológico
+        </div>
+        <p class="ex-desc">
+          Estágio remunerado que contempla a criação de um mapa epidemiológico de Floriano destacando as principais endemias da cidade.
+        </p>
+        <div class="ex-tags">
+          <span>Estágio</span><span>Epidemiologia</span><span>Georreferenciamento</span><span>Saúde Pública</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ 05 · OVERFLOWS ═══════ -->
+    <div class="ex-item reveal" data-tilt>
+      <div class="ex-node ex-node-live">
+        <span class="ex-node-ring"></span>
+        <span class="ex-node-core">05</span>
+      </div>
+      <div class="ex-card">
+        <div class="ex-card-borders">
+          <span class="ex-corner tl"></span><span class="ex-corner tr"></span>
+          <span class="ex-corner bl"></span><span class="ex-corner br"></span>
+          <span class="ex-scanline"></span>
+        </div>
+        <div class="ex-card-glow"></div>
+        <div class="ex-ribbon ex-ribbon-alt">◆ CURRENTLY ACTIVE</div>
+
+        <div class="ex-card-top">
+          <span class="ex-year">2026 — até o momento</span>
+          <span class="ex-code">#DEV-005</span>
+        </div>
+        <h3 class="ex-role" data-text="OverFlows">OverFlows</h3>
+        <div class="ex-company">
+          <span class="ex-company-icon">◈</span>
+          Plataforma de programação
+        </div>
+        <p class="ex-desc">
+          Plataforma focada na resolução de algoritmos, participação de eventos de programação. Construa seu portfólio enquanto compete com desenvolvedores de todo o mundo!
+        </p>
+        <div class="ex-tags">
+          <span>Algoritmos</span><span>Competição</span><span>Comunidade</span><span>Portfólio</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FIM DA TIMELINE -->
+    <div class="ex-end reveal">
+      <div class="ex-end-line"></div>
+      <div class="ex-end-badge">
+        <span class="ex-end-dot"></span>
+        <span>// fim do log · continue lendo em 2027...</span>
+      </div>
+    </div>
+  </div>
+</section>
 
       <!-- ── ACHIEVEMENTS ── -->
             <!-- ── ACHIEVEMENTS ── -->
@@ -3496,5 +4308,45 @@
     <script>console.log("Salve meu mano, de boa!?")</script>
     <script>console.log("Só queria te dizer... Deus te ama, nenguim. Se arrependa e entregue sua vida pra ele")</script>
     <script>console.log('Manda um salve lá no zap :) ')</script>
+    <script>
+/* ── TILT 3D nos cards de experiência ── */
+document.querySelectorAll('#experience [data-tilt] .ex-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - 0.5;
+    const y = (e.clientY - r.top)  / r.height - 0.5;
+    card.style.transform =
+      `perspective(1200px) rotateX(${-y * 5}deg) rotateY(${x * 7}deg) translateY(-4px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+/* ── PROGRESSO DA LINHA DE ENERGIA ── */
+const exContainer = document.querySelector('.ex-container');
+const exProgress  = document.querySelector('.ex-line-progress');
+if (exContainer && exProgress) {
+  window.addEventListener('scroll', () => {
+    const r = exContainer.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const total = r.height;
+    const visible = Math.min(Math.max(vh - r.top, 0), total);
+    exProgress.style.height = `${(visible / total) * 100}%`;
+  }, { passive: true });
+}
+
+/* ── REVEAL SEQUENCIAL DOS ITENS ── */
+const exItems = document.querySelectorAll('#experience .ex-item');
+const exObserver = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 90);
+      exObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+exItems.forEach(el => exObserver.observe(el));
+</script>
   </body>
 </html>
